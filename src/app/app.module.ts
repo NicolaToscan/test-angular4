@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule.withServerTransition({ appId: 'tour-of-heroes' }),
   ],
   providers: [],
   bootstrap: [AppComponent]
