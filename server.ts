@@ -14,7 +14,14 @@ enableProdMode();
 const app = express();
 
 const PORT = process.env.PORT || 4000;
-const DIST_FOLDER = join(process.cwd(), 'bin/www');
+
+let fullPathOfServerJS: string = process.cwd();
+console.log(fullPathOfServerJS);
+if (!fullPathOfServerJS.endsWith('bin\\www')) {
+  fullPathOfServerJS = join(process.cwd(), 'bin\\www')
+}
+const DIST_FOLDER = fullPathOfServerJS;
+console.log(DIST_FOLDER);
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
 const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./bin/www/server/main.bundle');
